@@ -1,0 +1,3 @@
+- name: "Install calibre application"
+  ansible.builtin.include_tasks: install/main.yml
+

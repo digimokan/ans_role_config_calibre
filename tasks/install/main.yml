@@ -1,0 +1,7 @@
+- name: "Install the 'calibre' application package"
+  ansible.builtin.package:
+    name: calibre
+    state: present
+  become: true
+  become_user: root
+
