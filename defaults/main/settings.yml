@@ -1,3 +1,9 @@
+# main user calibre config directory
+calibre_user_config_dir: "/home/{{ calibre_user_name }}/.config/calibre"
+
+# main user calibre config file
+calibre_user_prefs_file_path: "{{ calibre_user_config_dir }}/global.py.json"
+
 # directory where user's calibre database and ebooks are stored
 calibre_user_book_lib_dir: ''
 
