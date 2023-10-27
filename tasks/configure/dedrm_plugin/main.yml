@@ -1,0 +1,18 @@
+- name: "Define common vars for DeDRM plugin download, extract, and install"
+  ansible.builtin.set_fact:
+    calibre_dedrm_plugin_base_name: "DeDRM_tools_{{ calibre_dedrm_plugin_vers }}"
+    calibre_dedrm_plugin_remote_download_url: "https://github.com/noDRM/DeDRM_tools/\
+      releases/download/v{{ calibre_dedrm_plugin_vers }}/\
+      {{ calibre_dedrm_plugin_base_name }}.zip"
+    calibre_dedrm_plugin_local_dir: "{{ calibre_user_plugins_dir }}/\
+      {{ calibre_dedrm_plugin_base_name }}"
+    calibre_dedrm_plugin_local_zipfile_path: "{{ calibre_dedrm_plugin_local_dir }}/\
+      {{ calibre_dedrm_plugin_base_name }}.zip"
+    calibre_dedrm_plugin_local_dedrm_module_path: "{{ calibre_dedrm_plugin_local_dir }}/\
+      DeDRM_plugin.zip"
+    calibre_dedrm_plugin_local_obok_module_path: "{{ calibre_dedrm_plugin_local_dir }}/\
+      Obok_plugin.zip"
+
+- name: "Download and extract DeDRM plugin"
+  ansible.builtin.include_tasks: download.yml
+

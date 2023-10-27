@@ -1,6 +1,6 @@
 - name: "Configure user book library"
-  ansible.builtin.include_tasks: book_lib.yml
+  ansible.builtin.include_tasks: book_lib/main.yml
 
 - name: "Configure ebook format conversions"
-  ansible.builtin.include_tasks: format_conv.yml
+  ansible.builtin.include_tasks: dedrm_plugin/main.yml
 
