@@ -9,13 +9,13 @@
   ansible.builtin.set_fact:
     calibre_dedrm_plugin_collection_base_name: "\
       {{ calibre_dedrm_plugin_module_name }}_tools_\
-      {{ calibre_dedrm_plugin_collection_vers }}"
+      {{ calibre_dedrm_plugin_collection.vers }}"
 
 - name: "Define DeDRM plugin collection remote-URL and local-dir common vars"
   ansible.builtin.set_fact:
     calibre_dedrm_plugin_collection_remote_download_url: "\
       https://github.com/noDRM/DeDRM_tools/releases/download/\
-      v{{ calibre_dedrm_plugin_collection_vers }}/\
+      v{{ calibre_dedrm_plugin_collection.vers }}/\
       {{ calibre_dedrm_plugin_collection_base_name }}.zip"
     calibre_dedrm_plugin_collection_local_dir: "\
       {{ calibre_user_plugins_dir }}/{{ calibre_dedrm_plugin_collection_base_name }}"

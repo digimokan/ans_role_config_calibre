@@ -5,9 +5,11 @@ calibre_user_plugins_dir: "{{ calibre_user_config_dir }}/plugins"
 # see tasks/configure/dedrm_plugin/vars for info on supported formats
 calibre_enable_dedrm_plugin_collection: false
 
-# DeDRM plugin collection version
+# DeDRM plugin collection release version and date
 # --> see https://github.com/noDRM/DeDRM_tools/releases
-calibre_dedrm_plugin_collection_vers: '10.0.2'
+calibre_dedrm_plugin_collection:
+  vers: '10.0.3'
+  date: '2022-07-13'
 
 # list of device serial numbers that DeDRM will use to convert ebooks
 # calibre_dedrm_plugin_device_serial_num_list:
