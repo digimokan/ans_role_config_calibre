@@ -1,22 +1,6 @@
-- name: "Run 'calibre --version', in order to populate user calibre config dir"
-  ansible.builtin.command: calibre --version
-  changed_when: false
-  become: true
-  become_user: "{{ calibre_user_name }}"
+- name: "Configure user book library"
+  ansible.builtin.include_tasks: book_lib.yml
 
-- name: "Set user book lib dir to '{{ book_lib_dir }}' in '{{ calibre_user_prefs_file_path }}'"
-  ansible.builtin.lineinfile:
-    path: "{{ calibre_user_prefs_file_path }}"
-    regexp: >-
-      (^.*"library_path"): (.+),$
-    line: >-
-      \1: {{ book_lib_dir }},
-    state: present
-    create: false
-    backrefs: true
-  vars:
-    quoted_dir: "\"{{ calibre_user_book_lib_dir }}\""
-    book_lib_dir: "{{ calibre_user_book_lib_dir | ansible.builtin.ternary(quoted_dir, 'null') }}"
-  become: true
-  become_user: "{{ calibre_user_name }}"
+- name: "Configure ebook format conversions"
+  ansible.builtin.include_tasks: format_conv.yml
 

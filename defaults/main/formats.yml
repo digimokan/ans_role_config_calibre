@@ -1,0 +1,14 @@
+# user calibre plugins directory
+calibre_user_plugins_dir: "{{ calibre_user_config_dir }}/plugins"
+
+# if true, download and install the specified version of the DeDrm plugin
+calibre_download_and_install_dedrm_plugin: false
+
+# DeDrm ebook format-conversion-plugin version
+# --> see https://github.com/noDRM/DeDRM_tools/releases
+calibre_dedrm_plugin_version: '10.0.2'
+
+# optional list of serial numbers that DeDrm will use to convert kindle ebooks
+# calibre_dedrm_plugin_kindle_serial_num_list: ['012345689abcdef']
+calibre_dedrm_plugin_kindle_serial_num_list: []
+
