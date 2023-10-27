@@ -1,22 +1,22 @@
-- name: "Create user DeDrm plugin config dir at '{{ calibre_dedrm_plugin_local_dir }}'"
+- name: "Create user DeDrm plugin config dir at '{{ calibre_dedrm_plugin_collection_local_dir }}'"
   ansible.builtin.file:
-    path: "{{ calibre_dedrm_plugin_local_dir }}"
+    path: "{{ calibre_dedrm_plugin_collection_local_dir }}"
     state: directory
   become: true
   become_user: "{{ calibre_user_name }}"
 
-- name: "Download DeDrm plugin zip file from '{{ calibre_dedrm_plugin_remote_download_url }}'"
+- name: "Download DeDrm plugin from '{{ calibre_dedrm_plugin_collection_remote_download_url }}'"
   ansible.builtin.get_url:
-    url : "{{ calibre_dedrm_plugin_remote_download_url }}"
-    dest: "{{ calibre_dedrm_plugin_local_zipfile_path }}"
+    url : "{{ calibre_dedrm_plugin_collection_remote_download_url }}"
+    dest: "{{ calibre_dedrm_plugin_collection_local_zipfile_path }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
-- name: "Extract downloaded DeDrm plugin zip file inside '{{ calibre_dedrm_plugin_local_dir }}'"
+- name: "Extract downloaded DeDrm plugin inside '{{ calibre_dedrm_plugin_collection_local_dir }}'"
   ansible.builtin.unarchive:
-    src: "{{ calibre_dedrm_plugin_local_zipfile_path }}"
-    dest: "{{ calibre_dedrm_plugin_local_dir }}"
-    creates : "{{ calibre_dedrm_plugin_local_dedrm_module_path }}"
+    src: "{{ calibre_dedrm_plugin_collection_local_zipfile_path }}"
+    dest: "{{ calibre_dedrm_plugin_collection_local_dir }}"
+    creates : "{{ calibre_dedrm_plugin_local_module_path }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 

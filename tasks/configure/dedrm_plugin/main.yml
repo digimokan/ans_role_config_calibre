@@ -1,25 +1,14 @@
-- name: "Define DeDRM plugin basename common var"
-  ansible.builtin.set_fact:
-    calibre_dedrm_plugin_base_name: "DeDRM_tools_{{ calibre_dedrm_plugin_vers }}"
+- name: "Define role-local vars for working with the DeDRM plugin collection"
+  ansible.builtin.include_tasks: vars.yml
 
-- name: "Define DeDRM plugin remote-download-URL and local-plugin-dir common vars"
-  ansible.builtin.set_fact:
-    calibre_dedrm_plugin_remote_download_url: "\
-      https://github.com/noDRM/DeDRM_tools/releases/download/\
-      v{{ calibre_dedrm_plugin_vers }}/\
-      {{ calibre_dedrm_plugin_base_name }}.zip"
-    calibre_dedrm_plugin_local_dir: "\
-      {{ calibre_user_plugins_dir }}/{{ calibre_dedrm_plugin_base_name }}"
-
-- name: "Define DeDRM plugin local-zipfile-path and local-module-paths common vars"
-  ansible.builtin.set_fact:
-    calibre_dedrm_plugin_local_zipfile_path: "\
-      {{ calibre_dedrm_plugin_local_dir }}/{{ calibre_dedrm_plugin_base_name }}.zip"
-    calibre_dedrm_plugin_local_dedrm_module_path: "\
-      {{ calibre_dedrm_plugin_local_dir }}/DeDRM_plugin.zip"
-    calibre_dedrm_plugin_local_obok_module_path: "\
-      {{ calibre_dedrm_plugin_local_dir }}/Obok_plugin.zip"
-
-- name: "Download and extract DeDRM plugin"
+- name: "Download and extract the DeDRM plugin collection"
   ansible.builtin.include_tasks: download.yml
+
+- name: "Enable all plugins in the DeDRM plugin collection"
+  ansible.builtin.include_tasks: enable.yml
+  when: calibre_enable_dedrm_plugin_collection
+
+- name: "Disable all plugins in the DeDRM plugin collection"
+  ansible.builtin.include_tasks: disable.yml
+  when: not calibre_enable_dedrm_plugin_collection
 

@@ -1,14 +1,15 @@
 # user calibre plugins directory
 calibre_user_plugins_dir: "{{ calibre_user_config_dir }}/plugins"
 
-# download and install (or update) the specified version of the DeDRM plugin
-calibre_install_or_update_dedrm_plugin: false
+# enable the DeDRM ebook-format-conversion plugin collection
+# see tasks/configure/dedrm_plugin/vars for info on supported formats
+calibre_enable_dedrm_plugin_collection: false
 
-# DeDRM ebook format-conversion-plugin version, download dir, and filename
+# DeDRM plugin collection version
 # --> see https://github.com/noDRM/DeDRM_tools/releases
-calibre_dedrm_plugin_vers: '10.0.2'
+calibre_dedrm_plugin_collection_vers: '10.0.2'
 
-# list of device serial numbers that DeDRM will use to convert kindle ebooks
+# list of device serial numbers that DeDRM will use to convert ebooks
 # calibre_dedrm_plugin_device_serial_num_list:
 #   - { descrip: 'my_2023_kindle', serial_num: '012345689abcdef' }
 calibre_dedrm_plugin_device_serial_num_list: []

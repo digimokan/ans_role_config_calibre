@@ -1,0 +1,31 @@
+- name: "Define names for plugins in the DeDRM plugin collection"
+  ansible.builtin.set_fact:
+    # DRM-handling for Kindle, Adobe Adept, Readium LCP, B&N, Mobipocket
+    calibre_dedrm_plugin_module_name: "DeDRM"
+    # DRM-handling for Kobo kepub
+    calibre_obok_plugin_module_name: "Obok DeDRM"
+
+- name: "Define DeDRM plugin collection base-name common var"
+  ansible.builtin.set_fact:
+    calibre_dedrm_plugin_collection_base_name: "\
+      {{ calibre_dedrm_plugin_module_name }}_tools_\
+      {{ calibre_dedrm_plugin_collection_vers }}"
+
+- name: "Define DeDRM plugin collection remote-URL and local-dir common vars"
+  ansible.builtin.set_fact:
+    calibre_dedrm_plugin_collection_remote_download_url: "\
+      https://github.com/noDRM/DeDRM_tools/releases/download/\
+      v{{ calibre_dedrm_plugin_collection_vers }}/\
+      {{ calibre_dedrm_plugin_collection_base_name }}.zip"
+    calibre_dedrm_plugin_collection_local_dir: "\
+      {{ calibre_user_plugins_dir }}/{{ calibre_dedrm_plugin_collection_base_name }}"
+
+- name: "Define DeDRM plugin local-zipfile-path and local-module-paths common vars"
+  ansible.builtin.set_fact:
+    calibre_dedrm_plugin_collection_local_zipfile_path: "\
+      {{ calibre_dedrm_plugin_collection_local_dir }}/{{ calibre_dedrm_plugin_collection_base_name }}.zip"
+    calibre_dedrm_plugin_local_module_path: "\
+      {{ calibre_dedrm_plugin_collection_local_dir }}/DeDRM_plugin.zip"
+    calibre_obok_plugin_local_module_path: "\
+      {{ calibre_dedrm_plugin_collection_local_dir }}/Obok_plugin.zip"
+

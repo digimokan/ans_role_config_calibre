@@ -1,0 +1,16 @@
+- name: "Add DeDRM plugin to calibre"
+  ansible.builtin.command:
+    cmd: >-
+      calibre-customize --add-plugin
+      {{ calibre_dedrm_plugin_local_module_path | ansible.builtin.quote }}
+  become: true
+  become_user: "{{ calibre_user_name }}"
+
+- name: "Add Obok plugin to calibre"
+  ansible.builtin.command:
+    cmd: >-
+      calibre-customize --add-plugin
+      {{ calibre_obok_plugin_local_module_path | ansible.builtin.quote }}
+  become: true
+  become_user: "{{ calibre_user_name }}"
+

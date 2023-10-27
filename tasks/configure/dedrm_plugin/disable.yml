@@ -1,0 +1,16 @@
+- name: "Remove DeDRM plugin from calibre"
+  ansible.builtin.command:
+    cmd: >-
+      calibre-customize --remove-plugin
+      {{ calibre_dedrm_plugin_module_name | ansible.builtin.quote }}
+  become: true
+  become_user: "{{ calibre_user_name }}"
+
+- name: "Remove Obok plugin from calibre"
+  ansible.builtin.command:
+    cmd: >-
+      calibre-customize --remove-plugin
+      {{ calibre_obok_plugin_module_name | ansible.builtin.quote }}
+  become: true
+  become_user: "{{ calibre_user_name }}"
+
