@@ -3,6 +3,8 @@
     cmd: >-
       calibre-customize --remove-plugin
       {{ calibre_dedrm_plugin_module_name | ansible.builtin.quote }}
+  register: remove_result
+  changed_when: 'Plugin removed' in remove_result.stdout
   become: true
   become_user: "{{ calibre_user_name }}"
 
@@ -11,6 +13,8 @@
     cmd: >-
       calibre-customize --remove-plugin
       {{ calibre_obok_plugin_module_name | ansible.builtin.quote }}
+  register: remove_result
+  changed_when: 'Plugin removed' in remove_result.stdout
   become: true
   become_user: "{{ calibre_user_name }}"
 
