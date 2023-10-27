@@ -3,7 +3,8 @@
     cmd: >-
       calibre-customize --add-plugin
       {{ calibre_dedrm_plugin_local_module_path | ansible.builtin.quote }}
-  changed_when: false
+  register: add_result
+  changed_when: ('Copying needed library files' in add_result.stdout)
   become: true
   become_user: "{{ calibre_user_name }}"
 
@@ -12,7 +13,8 @@
     cmd: >-
       calibre-customize --add-plugin
       {{ calibre_obok_plugin_local_module_path | ansible.builtin.quote }}
-  changed_when: false
+  register: add_result
+  changed_when: ('Copying needed library files' in add_result.stdout)
   become: true
   become_user: "{{ calibre_user_name }}"
 
