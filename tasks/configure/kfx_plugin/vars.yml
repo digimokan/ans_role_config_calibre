@@ -17,10 +17,8 @@
     calibre_kfx_input_plugin_local_dir: "\
       {{ calibre_user_plugins_dir }}/{{ calibre_kfx_input_plugin_base_name }}"
 
-- name: "Define local-zipfile-path and local-module-paths for plugins"
+- name: "Define local-zipfile-paths for plugins"
   ansible.builtin.set_fact:
     calibre_kfx_input_plugin_local_zipfile_path: "\
       {{ calibre_kfx_input_plugin_local_dir }}/{{ calibre_kfx_input_plugin_base_name }}.zip"
-    calibre_kfx_input_plugin_local_module_path: "\
-      {{ calibre_kfx_input_plugin_local_dir }}/KFX_plugin.zip"
 

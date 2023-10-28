@@ -12,11 +12,3 @@
   become: true
   become_user: "{{ calibre_user_name }}"
 
-- name: "Extract downloaded KFX Input plugin inside '{{ calibre_kfx_input_plugin_local_dir }}'"
-  ansible.builtin.unarchive:
-    src: "{{ calibre_kfx_input_plugin_local_zipfile_path }}"
-    dest: "{{ calibre_kfx_input_plugin_local_dir }}"
-    creates : "{{ calibre_kfx_input_plugin_local_module_path }}"
-  become: true
-  become_user: "{{ calibre_user_name }}"
-
