@@ -1,0 +1,10 @@
+# - name: "Add KFX Input plugin to calibre"
+#   ansible.builtin.command:
+#     cmd: >-
+#       calibre-customize --add-plugin
+#       {{ calibre_kfx_input_plugin_local_module_path | ansible.builtin.quote }}
+#   register: add_result
+#   changed_when: ('Copying needed library files' in add_result.stdout)
+#   become: true
+#   become_user: "{{ calibre_user_name }}"
+

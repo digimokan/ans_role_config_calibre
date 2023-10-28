@@ -1,0 +1,14 @@
+- name: "Define role-local vars for working with the KFX Input plugin"
+  ansible.builtin.include_tasks: vars.yml
+
+- name: "Download and extract the KFX Input plugin"
+  ansible.builtin.include_tasks: download.yml
+
+- name: "Enable all plugins for the KFX input plugin"
+  ansible.builtin.include_tasks: enable.yml
+  when: calibre_enable_dedrm_plugin_collection
+
+- name: "Disable all plugins for the KFX input plugin"
+  ansible.builtin.include_tasks: disable.yml
+  when: not calibre_enable_dedrm_plugin_collection
+

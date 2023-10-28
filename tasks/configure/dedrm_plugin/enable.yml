@@ -1,3 +1,5 @@
+# see https://github.com/noDRM/DeDRM_tools/blob/master/CALIBRE_CLI_INSTRUCTIONS.md
+
 - name: "Add DeDRM plugin to calibre"
   ansible.builtin.command:
     cmd: >-

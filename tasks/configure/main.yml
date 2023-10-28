@@ -1,6 +1,9 @@
 - name: "Configure user book library"
   ansible.builtin.include_tasks: book_lib/main.yml
 
-- name: "Configure ebook format conversions"
+- name: "Configure DeDRM plugin collection"
   ansible.builtin.include_tasks: dedrm_plugin/main.yml
+
+- name: "Configure KFX Input plugin"
+  ansible.builtin.include_tasks: kfx_plugin/main.yml
 

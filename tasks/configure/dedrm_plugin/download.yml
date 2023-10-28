@@ -7,7 +7,7 @@
 
 - name: "Download DeDrm plugin from '{{ calibre_dedrm_plugin_collection_remote_download_url }}'"
   ansible.builtin.get_url:
-    url : "{{ calibre_dedrm_plugin_collection_remote_download_url }}"
+    url: "{{ calibre_dedrm_plugin_collection_remote_download_url }}"
     dest: "{{ calibre_dedrm_plugin_collection_local_zipfile_path }}"
   become: true
   become_user: "{{ calibre_user_name }}"

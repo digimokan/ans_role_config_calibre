@@ -1,0 +1,10 @@
+- name: "Remove KFX Input plugin from calibre"
+  ansible.builtin.command:
+    cmd: >-
+      calibre-customize --remove-plugin
+      {{ calibre_kfx_input_plugin_module_name | ansible.builtin.quote }}
+  register: remove_result
+  changed_when: ('Plugin removed' in remove_result.stdout)
+  become: true
+  become_user: "{{ calibre_user_name }}"
+

@@ -1,18 +1,26 @@
 # user calibre plugins directory
 calibre_user_plugins_dir: "{{ calibre_user_config_dir }}/plugins"
 
-# enable the DeDRM ebook-format-conversion plugin collection
+# enable the DeDRM plugin collection and the KFX-Input plugin
 # see tasks/configure/dedrm_plugin/vars for info on supported formats
 calibre_enable_dedrm_plugin_collection: false
 
-# DeDRM plugin collection release version and date
+# DeDRM plugin collection (for amazon azw/azw3 formats) release version and date
 # --> see https://github.com/noDRM/DeDRM_tools/releases
 calibre_dedrm_plugin_collection:
   vers: '10.0.3'
   date: '2022-07-13'
 
-# list of device serial numbers that DeDRM will use to convert ebooks
-# calibre_dedrm_plugin_device_serial_num_list:
+# KFX Input plugin (for amazon kfx format) release version and date
+# --> see https://github.com/noDRM/DeDRM_tools#dedrm_tools
+# --> check version on https://plugins.calibre-ebook.com/
+calibre_kfx_input_plugin:
+  vers: '2.5.0'
+  url_id: '291290'
+  date: '2023-09-08'
+
+# list of kindle serial numbers that DeDRM will use to convert ebooks
+# calibre_dedrm_plugin_kindle_serial_num_list:
 #   - { descrip: 'my_2023_kindle', serial_num: '012345689abcdef' }
-calibre_dedrm_plugin_device_serial_num_list: []
+calibre_dedrm_plugin_kindle_serial_num_list: []
 
