@@ -15,7 +15,7 @@
       \1: {{ serial_nums_array_string }}\3
   vars:
     serial_nums_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
-    serial_nums_array_string: "{{ serial_nums_fields | list | to_json }}"
+    serial_nums_array_string: "{{ serial_nums_fields | list | to_nice_json }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
