@@ -10,7 +10,7 @@
   ansible.builtin.lineinfile:
     path: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
     regexp: >-
-      (^.*"serials"): (\[.*\])(,?)$
+      (^.*"serials"): (\[\n?.*\n?.*\])(,?)$
     line: >-
       \1: {{ serial_nums_array_string }}\3
     state: present
@@ -18,7 +18,7 @@
     backrefs: true
   vars:
     serial_nums_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
-    serial_nums_array_string: "{{ serial_nums_fields | list | to_json }}"
+    serial_nums_array_string: "{{ serial_nums_fields | list | ansible.builtin.to_json(indent=4) }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
