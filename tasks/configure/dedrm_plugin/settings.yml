@@ -1,11 +1,8 @@
-- name: "Run DeDRM plugin manually, to generate '{{ calibre_dedrm_plugin_collection_settings_file_path }}'"
-  ansible.builtin.command:
-    cmd: >-
-      calibre-debug --run-plugin
-      {{ calibre_dedrm_plugin_module_name | ansible.builtin.quote }}
-    creates: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
-  register: result
-  failed_when: ('No plugin named' in result.stdout)
+- name: "Copy skeleton '{{ calibre_dedrm_plugin_collection_settings_file_path }}', if not exist"
+  ansible.builtin.template:
+    dest: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
+    src: "dedrm_json.j2"
+    force: false
   become: true
   become_user: "{{ calibre_user_name }}"
 
