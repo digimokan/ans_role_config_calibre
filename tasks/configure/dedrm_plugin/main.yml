@@ -12,3 +12,7 @@
   ansible.builtin.include_tasks: disable.yml
   when: not calibre_enable_dedrm_plugin_collection
 
+- name: "Configure settings for the DeDRM plugin collection"
+  ansible.builtin.include_tasks: settings.yml
+  when: calibre_enable_dedrm_plugin_collection
+

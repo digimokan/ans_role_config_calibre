@@ -29,3 +29,8 @@
     calibre_obok_plugin_local_module_path: "\
       {{ calibre_dedrm_plugin_collection_local_dir }}/Obok_plugin.zip"
 
+- name: "Define settings-file-paths for plugins and plugin collections"
+  ansible.builtin.set_fact:
+    calibre_dedrm_plugin_collection_settings_file_path: "\
+      {{ calibre_user_plugins_dir }}/dedrm.json"
+
