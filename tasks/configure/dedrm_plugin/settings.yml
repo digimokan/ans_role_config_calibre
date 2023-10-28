@@ -3,9 +3,9 @@
     cmd: >-
       calibre-debug --run-plugin
       {{ calibre_dedrm_plugin_module_name | ansible.builtin.quote }}
+    creates: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
   register: result
   failed_when: ('No plugin named' in result.stdout)
-  creates: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
