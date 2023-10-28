@@ -7,18 +7,15 @@
   become_user: "{{ calibre_user_name }}"
 
 - name: "Configure DeDRM plugin settings in '{{ calibre_dedrm_plugin_collection_settings_file_path }}'"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
     regexp: >-
       (^.*"serials"): (\[\n?.*\n?.*\])(,?)$
-    line: >-
+    replace: >-
       \1: {{ serial_nums_array_string }}\3
-    state: present
-    create: false
-    backrefs: true
   vars:
     serial_nums_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
-    serial_nums_array_string: "{{ serial_nums_fields | list | ansible.builtin.to_json(indent=4) }}"
+    serial_nums_array_string: "{{ serial_nums_fields | list | ansible.builtin.to_nice_json }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
