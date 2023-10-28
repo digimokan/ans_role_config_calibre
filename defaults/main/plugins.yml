@@ -21,6 +21,6 @@ calibre_kfx_input_plugin:
 
 # list of kindle serial numbers that DeDRM will use to convert ebooks
 # calibre_dedrm_plugin_kindle_serial_num_list:
-#   - { descrip: 'my_2023_kindle', serial_num: '012345689abcdef' }
+#   - { descrip: 'My 2023 Kindle', serial_num: '012345689abcdef' }
 calibre_dedrm_plugin_kindle_serial_num_list: []
 
