@@ -12,12 +12,10 @@
     regexp: >-
       (^.*"serials"): (\[\n?.*\n?.*\])(,?)$
     replace: >-
-      \1: {{ serial_nums_array_string | indent(2) }}\3
+      \1: {{ serial_nums_json_lines | indent(2) }}\3
   vars:
     serial_num_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
-    serial_nums_array_string: "{{ serial_num_fields | list | to_nice_json(indent=2) }}"
-  # Note: to_nice_json leaves ending ']' on last line unindented - could not fix
-  changed_when: false
+    serial_nums_json_lines: "{{ serial_num_fields | list | to_nice_json(indent=2) }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
