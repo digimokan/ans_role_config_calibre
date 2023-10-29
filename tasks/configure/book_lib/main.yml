@@ -1,7 +1,7 @@
 - name: "Run 'calibre --version', in order to populate user calibre config dir"
   ansible.builtin.command:
     cmd: calibre --version
-  changed_when: false
+    creates: "{{ calibre_user_config_dir }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
