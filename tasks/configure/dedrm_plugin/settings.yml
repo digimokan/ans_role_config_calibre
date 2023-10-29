@@ -17,7 +17,7 @@
     serial_nums_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
     serial_nums_array_first_string: "{{ serial_nums_fields | list | to_nice_json }}"
     # Note: to_nice_json was failing to indent the closing array ']'
-    serial_nums_array_string: "{{ serial_nums_array_first_string | regex_replace('^\\]', '  \\]') }}"
+    serial_nums_array_string: "{{ serial_nums_array_first_string | regex_replace('\n\]', '\n  ]') }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 
