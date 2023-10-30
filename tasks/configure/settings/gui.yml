@@ -15,7 +15,7 @@
       ("welcome_wizard_was_run": )(true)|(false)
     replace: >-
       \1true
-  # Note: ansible keeps reporting a change for this line, for no obvious reason
+  # Note: ansible keeps reporting a change for this task, for no obvious reason
   changed_when: false
   become: true
   become_user: "{{ calibre_user_name }}"
