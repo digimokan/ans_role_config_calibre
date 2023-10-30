@@ -1,36 +1,30 @@
 - name: "Set GUI language to English in '{{ calibre_user_prefs_file_path }}'"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ calibre_user_prefs_file_path }}"
     regexp: >-
-      (^.*"language"): (.+),$
-    line: >-
-      \1: "en",
-    create: false
-    backrefs: true
+      ("language": )(".+")|(null)
+    replace: >-
+      \1"en"
   become: true
   become_user: "{{ calibre_user_name }}"
 
 - name: "Set 'welcome_wizard_was_run' to 'true' in '{{ calibre_user_dynamic_settings_file_path }}'"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ calibre_user_dynamic_settings_file_path }}"
     regexp: >-
-      (^.*"welcome_wizard_was_run"): (.+)$
-    line: >-
-      \1: true
-    create: false
-    backrefs: true
+      ("welcome_wizard_was_run": )(true)|(false)
+    replace: >-
+      \1true
   become: true
   become_user: "{{ calibre_user_name }}"
 
 - name: "Set 'new_version_notification' to 'false' in '{{ calibre_user_gui_settings_file_path }}'"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ calibre_user_gui_settings_file_path }}"
     regexp: >-
-      (^.*"new_version_notification"): (.+),$
-    line: >-
-      \1: false,
-    create: false
-    backrefs: true
+      ("new_version_notification": )(true)|(false)
+    replace: >-
+      \1false
   become: true
   become_user: "{{ calibre_user_name }}"
 

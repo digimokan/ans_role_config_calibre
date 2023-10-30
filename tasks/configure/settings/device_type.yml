@@ -1,12 +1,10 @@
 - name: "Set target e-reader to 'default generic e-ink' in '{{ calibre_user_dynamic_settings_file_path }}'"
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ calibre_user_dynamic_settings_file_path }}"
     regexp: >-
-      (^.*"welcome_wizard_device"): (.+),$
-    line: >-
-      \1: "default",
-    create: false
-    backrefs: true
+      ("welcome_wizard_device": )(".+")|(null)
+    replace: >-
+      \1"default"
   become: true
   become_user: "{{ calibre_user_name }}"
 

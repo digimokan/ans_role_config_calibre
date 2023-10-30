@@ -10,9 +10,9 @@
   ansible.builtin.replace:
     path: "{{ calibre_dedrm_plugin_collection_settings_file_path }}"
     regexp: >-
-      (^.*"serials"): (\[\n?.*\n?.*\])(,?)$
+      ("serials": )(\[\n?.*\n?.*\])
     replace: >-
-      \1: {{ serial_nums_json_lines | indent(2) }}\3
+      \1{{ serial_nums_json_lines | indent(2) }}
   vars:
     serial_num_fields: "{{ calibre_dedrm_plugin_kindle_serial_num_list | map(attribute='serial_num') }}"
     serial_nums_json_lines: "{{ serial_num_fields | list | to_nice_json(indent=2) }}"
