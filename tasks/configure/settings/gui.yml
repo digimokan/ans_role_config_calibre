@@ -12,7 +12,7 @@
   ansible.builtin.replace:
     path: "{{ calibre_user_dynamic_settings_file_path }}"
     regexp: >-
-      ("welcome_wizard_was_run": )(true)|(false)
+      ^(\s+"welcome_wizard_was_run": )(true)|(false)
     replace: >-
       \1true
   become: true
