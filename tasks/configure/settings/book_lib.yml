@@ -2,9 +2,9 @@
   ansible.builtin.replace:
     path: "{{ calibre_user_prefs_file_path }}"
     regexp: >-
-      ("library_path"): (".+")|(null)
+      ("library_path": )(".+")|(null)
     replace: >-
-      \1: {{ book_lib_dir }}
+      \1{{ book_lib_dir }}
   vars:
     quoted_dir: "\"{{ calibre_user_book_lib_dir }}\""
     book_lib_dir: "{{ calibre_user_book_lib_dir | ansible.builtin.ternary(quoted_dir, 'null') }}"
