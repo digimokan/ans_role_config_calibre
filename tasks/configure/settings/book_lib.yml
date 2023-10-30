@@ -5,7 +5,6 @@
       (^.*"library_path"): (.+)(,?)$
     line: >-
       \1: {{ book_lib_dir }}\3
-    state: present
     create: false
     backrefs: true
   vars:

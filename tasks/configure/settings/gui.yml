@@ -1,15 +1,14 @@
-- name: "Set GUI language to English in '{{ calibre_user_prefs_file_path }}'"
-  ansible.builtin.lineinfile:
-    path: "{{ calibre_user_prefs_file_path }}"
-    regexp: >-
-      (^.*"language"): (.+)(,?)$
-    line: >-
-      \1: "en"\3
-    state: present
-    create: false
-    backrefs: true
-  become: true
-  become_user: "{{ calibre_user_name }}"
+# - name: "Set GUI language to English in '{{ calibre_user_prefs_file_path }}'"
+#   ansible.builtin.lineinfile:
+#     path: "{{ calibre_user_prefs_file_path }}"
+#     regexp: >-
+#       (^.*"language"): (.+)(,?)$
+#     line: >-
+#       \1: "en"\3
+#     create: false
+#     backrefs: true
+#   become: true
+#   become_user: "{{ calibre_user_name }}"
 
 # - name: "Set 'welcome_wizard_was_run' to 'true' in '{{ calibre_user_dynamic_settings_file_path }}'"
 #   ansible.builtin.lineinfile:
