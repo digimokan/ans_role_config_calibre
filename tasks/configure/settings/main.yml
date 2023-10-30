@@ -1,0 +1,12 @@
+- name: "Initialize all user config files"
+  ansible.builtin.include_tasks: init.yml
+
+- name: "Configure user book library (and database) path"
+  ansible.builtin.include_tasks: book_lib.yml
+
+- name: "Configure GUI settings"
+  ansible.builtin.include_tasks: gui.yml
+
+- name: "Configure target e-reader device type"
+  ansible.builtin.include_tasks: device_type.yml
+

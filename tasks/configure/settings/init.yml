@@ -1,0 +1,23 @@
+- name: "Run 'calibre --version', in order to create '{{ calibre_user_prefs_file_path }}'"
+  ansible.builtin.command:
+    cmd: calibre --version
+    creates: "{{ calibre_user_prefs_file_path }}"
+  become: true
+  become_user: "{{ calibre_user_name }}"
+
+- name: "Copy skeleton '{{ calibre_user_dynamic_settings_file_path }}', if not exist"
+  ansible.builtin.template:
+    dest: "{{ calibre_user_dynamic_settings_file_path }}"
+    src: "dynamic_pickle_json.j2"
+    force: false
+  become: true
+  become_user: "{{ calibre_user_name }}"
+
+- name: "Copy skeleton '{{ calibre_user_gui_settings_file_path }}', if not exist"
+  ansible.builtin.template:
+    dest: "{{ calibre_user_gui_settings_file_path }}"
+    src: "gui_py_json.j2"
+    force: false
+  become: true
+  become_user: "{{ calibre_user_name }}"
+

@@ -1,5 +1,5 @@
-- name: "Configure user book library"
-  ansible.builtin.include_tasks: book_lib/main.yml
+- name: "Configure all user settings"
+  ansible.builtin.include_tasks: settings/main.yml
 
 - name: "Configure DeDRM plugin collection"
   ansible.builtin.include_tasks: dedrm_plugin/main.yml

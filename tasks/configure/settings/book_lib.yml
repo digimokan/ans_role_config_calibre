@@ -1,18 +1,10 @@
-- name: "Run 'calibre --version', in order to populate user calibre config dir"
-  ansible.builtin.command:
-    cmd: calibre --version
-    creates: "{{ calibre_user_config_dir }}"
-  become: true
-  become_user: "{{ calibre_user_name }}"
-
 - name: "Set user book lib dir to '{{ book_lib_dir }}' in '{{ calibre_user_prefs_file_path }}'"
   ansible.builtin.lineinfile:
     path: "{{ calibre_user_prefs_file_path }}"
     regexp: >-
-      (^.*"library_path"): (.+),$
+      (^.*"library_path"): (.+)(,?)$
     line: >-
-      \1: {{ book_lib_dir }},
-    state: present
+      \1: {{ book_lib_dir }}\3
     create: false
     backrefs: true
   vars:

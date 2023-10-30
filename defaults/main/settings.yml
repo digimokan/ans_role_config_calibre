@@ -1,8 +1,14 @@
 # main user calibre config directory
 calibre_user_config_dir: "/home/{{ calibre_user_name }}/.config/calibre"
 
-# main user calibre config file
+# user calibre config file for main preferences
 calibre_user_prefs_file_path: "{{ calibre_user_config_dir }}/global.py.json"
+
+# user calibre config file for dynamic settings
+calibre_user_dynamic_settings_file_path: "{{ calibre_user_config_dir }}/dynamic.pickle.json"
+
+# user calibre config file for GUI settings
+calibre_user_gui_settings_file_path: "{{ calibre_user_config_dir }}/gui.py.json"
 
 # directory where user's calibre database and ebooks are stored
 calibre_user_book_lib_dir: ''
