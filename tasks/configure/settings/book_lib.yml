@@ -2,9 +2,9 @@
   ansible.builtin.lineinfile:
     path: "{{ calibre_user_prefs_file_path }}"
     regexp: >-
-      (^.*"library_path"): (.+)(\,?)$
+      (^.*"library_path"): (.+),$
     line: >-
-      \1: {{ book_lib_dir }}\3
+      \1: {{ book_lib_dir }},
     create: false
     backrefs: true
   vars:

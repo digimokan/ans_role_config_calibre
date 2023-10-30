@@ -2,9 +2,9 @@
   ansible.builtin.lineinfile:
     path: "{{ calibre_user_dynamic_settings_file_path }}"
     regexp: >-
-      (^.*"welcome_wizard_device"): (.+)(,?)$
+      (^.*"welcome_wizard_device"): (.+),$
     line: >-
-      \1: "default"\3
+      \1: "default",
     create: false
     backrefs: true
   become: true

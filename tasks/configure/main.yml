@@ -1,9 +1,9 @@
 - name: "Configure all user settings"
   ansible.builtin.include_tasks: settings/main.yml
 
-# - name: "Configure DeDRM plugin collection"
-#   ansible.builtin.include_tasks: dedrm_plugin/main.yml
+- name: "Configure DeDRM plugin collection"
+  ansible.builtin.include_tasks: dedrm_plugin/main.yml
 
-# - name: "Configure KFX Input plugin"
-#   ansible.builtin.include_tasks: kfx_plugin/main.yml
+- name: "Configure KFX Input plugin"
+  ansible.builtin.include_tasks: kfx_plugin/main.yml
 
