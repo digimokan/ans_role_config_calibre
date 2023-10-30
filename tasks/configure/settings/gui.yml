@@ -5,6 +5,7 @@
       (^.*"language"): (.+)(,?)$
     line: >-
       \1: "en"\3
+    state: present
     create: false
     backrefs: true
   become: true
