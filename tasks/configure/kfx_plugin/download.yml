@@ -11,4 +11,5 @@
     dest: "{{ calibre_kfx_input_plugin_local_zipfile_path }}"
   become: true
   become_user: "{{ calibre_user_name }}"
+  register: calibre_kfx_input_download_result
 

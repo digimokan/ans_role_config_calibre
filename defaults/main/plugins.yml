@@ -11,13 +11,12 @@ calibre_dedrm_plugin_collection:
   vers: '10.0.3'
   date: '2022-07-13'
 
-# KFX Input plugin (for amazon kfx format) release version and date
+# KFX Input plugin (for amazon kfx format): url is always latest version
 # --> see https://github.com/noDRM/DeDRM_tools#dedrm_tools
 # --> check version on https://plugins.calibre-ebook.com/
 calibre_kfx_input_plugin:
-  vers: '2.5.0'
+  vers: 'latest'
   url_id: '291290'
-  date: '2023-09-08'
 
 # list of kindle serial numbers that DeDRM will use to convert ebooks
 # calibre_dedrm_plugin_kindle_serial_num_list:
