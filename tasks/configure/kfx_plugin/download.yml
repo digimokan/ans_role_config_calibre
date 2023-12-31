@@ -5,7 +5,7 @@
   become: true
   become_user: "{{ calibre_user_name }}"
 
-- name: "Download KFX Input plugin from '{{ calibre_kfx_input_plugin_remote_download_url }}'"
+- name: "Download latest KFX Input plugin from '{{ calibre_kfx_input_plugin_remote_download_url }}'"
   ansible.builtin.get_url:
     url: "{{ calibre_kfx_input_plugin_remote_download_url }}"
     dest: "{{ calibre_kfx_input_plugin_local_zipfile_path }}"
