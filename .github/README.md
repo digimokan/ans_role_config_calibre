@@ -60,13 +60,13 @@ Install and configure the calibre ebook management application.
 
 ## Role Options
 
-See the role `defaults` files for main role vars listings:
+Vars that must be defined when including the role in the playbook:
 
-  * [defaults](../defaults/main/)
+  * [dependencies](../defaults/main/dependencies/commands.yml)
 
-Define these _required_ vars for the role:
+Vars with default values, which can be overridden in the playbook:
 
-  * `calibre_user_name`: user name of main calibre user
+  * [overridable](../defaults/main/overridable)
 
 ## Contributing
 

@@ -1,3 +1,6 @@
+# main calibre user name
+calibre_user_name: "admin"
+
 # main user calibre config directory
 calibre_user_config_dir: "/home/{{ calibre_user_name }}/.config/calibre"
 

@@ -1,0 +1,6 @@
+# command to execute to execute unzip (required all OSs, to unzip plugins)
+cablibre_unzip_main_cmd: 'false'
+
+# command to execute to execute flatpak (required for some OSs that use flatpak)
+calibre_flatpak_main_cmd: 'false'
+

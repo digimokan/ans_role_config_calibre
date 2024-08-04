@@ -17,6 +17,9 @@
     src: "{{ calibre_dedrm_plugin_collection_local_zipfile_path }}"
     dest: "{{ calibre_dedrm_plugin_collection_local_dir }}"
     creates: "{{ calibre_dedrm_plugin_local_module_path }}"
+  vars:
+    # Note: the var here just marks the dependency of ansible.builtin.unarchive
+    req_unzip_cmd: "{{ cablibre_unzip_main_cmd }}"
   become: true
   become_user: "{{ calibre_user_name }}"
 

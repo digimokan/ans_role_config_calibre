@@ -1,3 +1,0 @@
-# command to execute to execute flatpak (required for some OSs that use flatpak)
-flatpak_main_cmd: 'false'
-
